@@ -40,8 +40,7 @@ public class Vector extends Point {
 	 * @return result of scale-vector
 	 * @throws Exception a zero vector-illegal argument
 	 */
-	public Vector scale(double num) throws Exception
-	{
+	public Vector scale(double num) throws Exception {
 		return new Vector(this.xyz.scale(num));
 	}
 	
@@ -51,8 +50,7 @@ public class Vector extends Point {
 	 * @return result of dot product
 	 */
 	///לא הבנתי מה הוא רוצה מהחיים שלי עם כל הבדיקות המוזרות
-	public double dotProduct(Vector v)
-	{
+	public double dotProduct(Vector v) {
 		Double3 d=this.xyz.product(v.xyz);
 		return d.d1+d.d2+d.d3;
 	}
@@ -64,8 +62,7 @@ public class Vector extends Point {
 	 * @throws Exception a zero vector-illegal argument
 	 */
 	////צריך לטפל בחריגות
-	public Vector crossProduct(Vector v) throws Exception
-	{
+	public Vector crossProduct(Vector v) throws Exception {
 		double x=this.xyz.d2*v.xyz.d3-this.xyz.d3*v.xyz.d2;
 		double y=this.xyz.d3*v.xyz.d1-this.xyz.d1*v.xyz.d3;
 		double z=this.xyz.d1*v.xyz.d2-this.xyz.d2*v.xyz.d1;
@@ -76,8 +73,7 @@ public class Vector extends Point {
 	 * a function that calculates the squared length of a vector
 	 * @return squared length
 	 */
-	public double lengthSquared()
-	{
+	public double lengthSquared() {
 		Point p=new Point(this.xyz);
 		return p.distanceSquared(new Point(Double3.ZERO));
 	}
@@ -86,8 +82,7 @@ public class Vector extends Point {
 	 * a function that calculates the length of a vector
 	 * @return length
 	 */
-	public double length()
-	{
+	public double length() {
 		return Math.sqrt(this.lengthSquared());
 	}
 	
@@ -96,10 +91,18 @@ public class Vector extends Point {
 	 * @return the normalized vector
 	 * @throws Exception a zero vector-illegal argument
 	 */
-	public Vector normalize() throws Exception 
-	{
+	public Vector normalize() throws Exception {
 		double len=this.length();
 		return this.scale(1/len);
+	}
+	/**
+	 * A function that subtracts two vectors
+	 * @param v- the second vector
+	 * @return the new vector
+	 * @throws Exception- a zero vector-illegal argument
+	 */
+	public Vector subtract(Vector v) throws Exception {////מה לעשות במצב של חריגה?
+		return new Vector(this.xyz.subtract(v.xyz));
 	}
 	
 	@Override

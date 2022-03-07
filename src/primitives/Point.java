@@ -51,8 +51,7 @@ public class Point {
 	 * @param p the second point
 	 * @return the squared distance
 	 */
-	public double distanceSquared(Point p) 
-	{
+	public double distanceSquared(Point p) {
 		Double3 d=this.xyz.subtract(p.xyz);
 		d= d.product(d);
 		return d.d1+d.d2+d.d3;
@@ -62,8 +61,7 @@ public class Point {
 	 * @param p the second point
 	 * @return the distance
 	 */
-	public double distance(Point p)
-	{
+	public double distance(Point p){
 		return Math.sqrt(this.distanceSquared(p));
 	}
 	
