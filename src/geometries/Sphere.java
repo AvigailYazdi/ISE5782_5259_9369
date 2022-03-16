@@ -36,8 +36,8 @@ public class Sphere implements Geometry{
 
 	@Override
 	public Vector getNormal(Point p) {
-		// TODO Auto-generated method stub
-		return null;
+		Vector v=p.subtract(center);
+		return v.normalize();
 	}
 
 	@Override

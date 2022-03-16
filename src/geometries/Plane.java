@@ -14,9 +14,14 @@ public class Plane implements Geometry{
 	 * @param p3 the third point
 	 */
 	///בדיקות
-	public Plane(Point p1, Point p2, Point p3){
+	public Plane(Point p1, Point p2, Point p3)/*throws Exception*/{
+		if(p1==p2 || p2==p3 || p3==p1)
+			throw new IllegalArgumentException();	
 		this.p0=p1;
-		this.normal=null;
+		Vector v1=p1.subtract(p2);
+		Vector v2=p1.subtract(p3);
+		////////////if(??????????????????????????)
+		this.normal=v1.crossProduct(v2).normalize();
 	}
 	
 	/**
@@ -26,7 +31,7 @@ public class Plane implements Geometry{
 	 */
 	public Plane(Point p, Vector v){
 		this.p0=p;
-		this.normal=v;
+		this.normal=v.normalize();
 	}
 	
 	/**

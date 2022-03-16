@@ -13,7 +13,7 @@ public class Ray {
 	 * @param dir the direction vector
 	 * @throws Exception a zero vector-illegal argument
 	 */
-	public Ray(Point p0, Vector dir) throws Exception {
+	public Ray(Point p0, Vector dir) /*throws Exception*/ {
 		super();
 		this.p0 = p0;
 		this.dir = dir.normalize();

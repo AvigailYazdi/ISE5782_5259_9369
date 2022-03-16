@@ -9,7 +9,7 @@ public class Vector extends Point {
 	 * @param d3 the third value-z
 	 * @throws Exception a zero vector-illegal argument
 	 */
-	public Vector(double d1, double d2, double d3) throws Exception{
+	public Vector(double d1, double d2, double d3) /*throws Exception*/{
 		super(d1, d2, d3);
 		if((this.xyz).equals(Double3.ZERO))
 			throw new IllegalArgumentException();	
@@ -20,7 +20,7 @@ public class Vector extends Point {
 	 * @param xyz the values of a vector
 	 * @throws Exception a zero vector-illegal argument
 	 */
-	Vector(Double3 xyz) throws Exception{
+	Vector(Double3 xyz) /*throws Exception*/{
 		super(xyz);
 		if((this.xyz).equals(Double3.ZERO))
 			throw new IllegalArgumentException();
@@ -30,7 +30,7 @@ public class Vector extends Point {
 	 * ??????
 	 */
 	///למה חייב לשנות שם פונקציה
-	public Vector add(Vector v) throws Exception {
+	public Vector add(Vector v) /*throws Exception*/ {
 		return new Vector(this.xyz.add(v.xyz));
 	}
 	
@@ -40,7 +40,7 @@ public class Vector extends Point {
 	 * @return result of scale-vector
 	 * @throws Exception a zero vector-illegal argument
 	 */
-	public Vector scale(double num) throws Exception {
+	public Vector scale(double num) /*throws Exception*/ {
 		return new Vector(this.xyz.scale(num));
 	}
 	
@@ -62,7 +62,7 @@ public class Vector extends Point {
 	 * @throws Exception a zero vector-illegal argument
 	 */
 	////צריך לטפל בחריגות
-	public Vector crossProduct(Vector v) throws Exception {
+	public Vector crossProduct(Vector v) /*throws Exception*/ {
 		double x=this.xyz.d2*v.xyz.d3-this.xyz.d3*v.xyz.d2;
 		double y=this.xyz.d3*v.xyz.d1-this.xyz.d1*v.xyz.d3;
 		double z=this.xyz.d1*v.xyz.d2-this.xyz.d2*v.xyz.d1;
@@ -91,7 +91,7 @@ public class Vector extends Point {
 	 * @return the normalized vector
 	 * @throws Exception a zero vector-illegal argument
 	 */
-	public Vector normalize() throws Exception {
+	public Vector normalize() /*throws Exception*/ {
 		double len=this.length();
 		return this.scale(1/len);
 	}
@@ -101,7 +101,7 @@ public class Vector extends Point {
 	 * @return the new vector
 	 * @throws Exception- a zero vector-illegal argument
 	 */
-	public Vector subtract(Vector v) throws Exception {////מה לעשות במצב של חריגה?
+	public Vector subtract(Vector v) /*throws Exception*/ {
 		return new Vector(this.xyz.subtract(v.xyz));
 	}
 	

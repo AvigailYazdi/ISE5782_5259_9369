@@ -30,7 +30,7 @@ public class Point {
 	 * @return result of subtract-vector
 	 * @throws Exception creation a zero vector
 	 */
-	public Vector subtract(Point p) throws Exception {////מה לעשות במצב של חריגה?
+	public Vector subtract(Point p) /*throws Exception*/ {
 		return new Vector(this.xyz.subtract(p.xyz));
 	}
 
@@ -42,7 +42,7 @@ public class Point {
 	 * @throws Exception ?
 	 */
 	////למה חייב את הזריקת חריגה
-	public Point add(Vector v) throws Exception {
+	public Point add(Vector v) /*throws Exception*/ {
 		return new Point(this.xyz.add(v.xyz));
 	}
 	
