@@ -2,7 +2,7 @@ package geometries;
 
 import primitives.*;
 
-public interface Geometry {
+public interface Geometry extends Intersectable{
 
 	/**
 	 * a function that return the normal to a geometry in a point

@@ -34,6 +34,15 @@ public class Ray {
 	public Vector getDir() {
 		return dir;
 	}
+	
+	/**
+	 * a function that returns a vector that scale
+	 * @param t
+	 * @return vector
+	 */
+	public Point getPoint(double t) {
+		return p0.add(dir.scale(t));
+	}
 
 	@Override
 	public boolean equals(Object obj) {

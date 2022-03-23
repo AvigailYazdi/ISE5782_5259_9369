@@ -1,6 +1,9 @@
 package geometries;
 
+import java.util.List;
+
 import primitives.*;
+import static primitives.Util.*;
 
 public class Plane implements Geometry{
 
@@ -59,5 +62,34 @@ public class Plane implements Geometry{
 	public String toString(){
 		return "Plane: p0=" + p0 + ", normal=" + normal + " ";
 	}
+
+	@Override
+	public List<Point> findIntersections(Ray ray) {
+
+		double nv = normal.dotProduct(ray.getDir());
+		if (isZero(nv))
+		{
+			return null;
+		}
+		
+		try 
+		{
+			Vector pSubtractP0 = p0.subtract(ray.getP0());
+			double t = alignZero((normal.dotProduct(pSubtractP0))/nv);
+
+			if(t <= 0)
+			{
+				return null;
+			}
+			return List.of(ray.getPoint(t));
+		}
+		catch(Exception ex)
+		{
+			return null;
+		}
+	
+	}
+
+
 	
 }
