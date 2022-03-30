@@ -1,5 +1,9 @@
 package primitives;
 
+/**
+ * @author shilat and Avigail
+ * Point class
+ */
 public class Point {
 	/////בדיקות תקינות
 	Double3 xyz;

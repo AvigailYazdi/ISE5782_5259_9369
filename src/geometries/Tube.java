@@ -4,6 +4,10 @@ import java.util.List;
 
 import primitives.*;
 
+/**
+ * @author shilat and Avigail
+ * Tube class
+ */
 public class Tube implements Geometry{
 	
 	Ray axisRay;

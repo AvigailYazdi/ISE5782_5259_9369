@@ -5,6 +5,10 @@ import java.util.List;
 import primitives.*;
 import static primitives.Util.*;
 
+/**
+ * @author shilat and Avigail
+ * Plane class
+ */
 public class Plane implements Geometry{
 
 	Point p0;
@@ -23,7 +27,7 @@ public class Plane implements Geometry{
 		this.p0=p1;
 		Vector v1=p1.subtract(p2);
 		Vector v2=p1.subtract(p3);
-		////////////if(??????????????????????????)
+
 		this.normal=v1.crossProduct(v2).normalize();
 	}
 	

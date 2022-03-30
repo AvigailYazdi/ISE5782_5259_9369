@@ -3,7 +3,10 @@ package geometries;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
-
+/**
+ * @author shilat and Avigail
+ * Cylinder class
+ */
 public class Cylinder extends Tube{
 	
 	double height;

@@ -6,6 +6,10 @@ import primitives.*;
 
 import static primitives.Util.*;
 
+/**
+ * @author shilat and Avigail
+ * Sphere class
+ */
 public class Sphere implements Geometry{
 
 	Point center;

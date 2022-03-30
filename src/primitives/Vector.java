@@ -1,5 +1,9 @@
 package primitives;
 
+/**
+ * @author shilat and Avigail
+ * Vector class
+ */
 public class Vector extends Point {
 
 	/**

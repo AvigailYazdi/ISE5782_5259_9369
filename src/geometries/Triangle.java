@@ -6,6 +6,10 @@ import primitives.*;
 
 import static primitives.Util.*;
 
+/**
+ * @author shilat and Avigail
+ * Triangle class
+ */
 public class Triangle extends Polygon{
 
 	/**

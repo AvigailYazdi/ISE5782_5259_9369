@@ -2,6 +2,10 @@ package geometries;
 
 import primitives.*;
 
+/**
+ * @author shilat and Avigail
+ * Geometry class
+ */
 public interface Geometry extends Intersectable{
 
 	/**

@@ -14,7 +14,7 @@ import primitives.Ray;
 
 /**
  * @author shilat and avigail
- *
+ * Geometries interface
  */
 public class Geometries implements Intersectable {
 	

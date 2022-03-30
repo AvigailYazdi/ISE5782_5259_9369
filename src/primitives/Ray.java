@@ -2,6 +2,10 @@ package primitives;
 
 import java.util.Objects;
 
+/**
+ * @author shilat and Avigail
+ * Ray class
+ */
 public class Ray {
 	
 	final Point p0;
