@@ -24,10 +24,15 @@ public class Triangle extends Polygon{
 	}
 
 	@Override
-	public List<Point> findIntersections(Ray ray) {
-		List<Point> rayPoints = plane.findIntersections(ray);
+	public List<GeoPoint> findGeoIntersections(Ray ray) {
+		List<GeoPoint> rayPoints = plane.findGeoIntersections(ray);
 		if (rayPoints == null)
 			return null;
+		for (GeoPoint geoPoint : rayPoints) 
+		{
+			geoPoint.geometry = this;
+		}
+
 		//check if the point in out or on the triangle:
 		Vector v1 = vertices.get(0).subtract(ray.getP0());
 		Vector v2 = vertices.get(1).subtract(ray.getP0());

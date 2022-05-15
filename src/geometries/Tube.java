@@ -8,7 +8,7 @@ import primitives.*;
  * @author shilat and Avigail
  * Tube class
  */
-public class Tube implements Geometry{
+public class Tube extends Geometry{
 	
 	Ray axisRay;
 	double radius;
@@ -56,7 +56,7 @@ public class Tube implements Geometry{
 	}
 
 	@Override
-	public List<Point> findIntersections(Ray ray) {
+	public List<GeoPoint> findGeoIntersections(Ray ray) {
 		// TODO Auto-generated method stub
 		return null;
 	}

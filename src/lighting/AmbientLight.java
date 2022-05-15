@@ -2,6 +2,10 @@
  * 
  */
 package lighting;
+/**
+ * @author shilat and Avigail
+ *
+ */
 
 import primitives.*;
 
@@ -12,34 +16,29 @@ import primitives.*;
  * @author Shilat and Avigail
  *
  */
-public class AmbientLight {
+public class AmbientLight extends Light{
 
 	private Color Ia; //the color
 	private Double3 Ka; 
-	private Color intensity;
-	
-	
-	/**
-	 *default ctor 
-	 */
-	public AmbientLight() {
-		intensity=Color.BLACK;
-	}
 
+	
 	/**
 	 * constructor that save the intensity=Ia*Ka
 	 * @param Ia Color value
 	 * @param Ka double value
 	 */
 	public AmbientLight(Color Ia,Double3 Ka ) {
-		this.intensity = Ia.scale(Ka);
+		super(Ia.scale(Ka));
+		
 	}
 
 	/**
-	 * getter function for the intensity filed
-	 * @return the intensity
+	 * A default constructor
+	 * this c-tor put the defalt color - black to the ambition light
 	 */
-	public Color getIntensity() {
-		return intensity;
+	public AmbientLight() {
+		super(Color.BLACK);
 	}
+	
+
 }

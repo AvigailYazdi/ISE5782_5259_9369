@@ -16,7 +16,7 @@ import primitives.Ray;
  * @author shilat and avigail
  * Geometries interface
  */
-public class Geometries implements Intersectable {
+public class Geometries extends Intersectable {
 	
 	private List<Intersectable> sceneGeometries;
 	
@@ -31,11 +31,11 @@ public class Geometries implements Intersectable {
 	}
 
 	@Override
-	public List<Point> findIntersections(Ray ray) {
-		List<Point> temp = new ArrayList<Point>();
+	public List<GeoPoint> findGeoIntersections(Ray ray) {
+		List<GeoPoint> temp = new ArrayList<GeoPoint>();
 		for (Intersectable intersectable : sceneGeometries) 
 		{
-			List<Point> intersection = intersectable.findIntersections(ray);
+			List<GeoPoint> intersection = intersectable.findGeoIntersections(ray);
 			if (intersection != null)
 				temp.addAll(intersection); 
 		}

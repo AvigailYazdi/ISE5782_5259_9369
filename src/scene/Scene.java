@@ -6,7 +6,9 @@ package scene;
 import lighting.AmbientLight;
 import geometries.Geometries;
 import primitives.Color;
-
+import java.util.LinkedList;
+import java.util.List;
+import lighting.LightSource;
 /**
  * @author Shilat and Avigail
  *
@@ -17,6 +19,7 @@ public class Scene {
 	public Color background;
 	public AmbientLight ambientLight;
 	public Geometries geometries;
+	public List<LightSource>lights=new LinkedList<LightSource>() ;
 	
 	/**
 	 * constructor 
@@ -30,6 +33,15 @@ public class Scene {
 	}
 	
 
+	/**
+	 * setter function to lights  and return this for builder pattern
+	 * 
+	 * @param lights the lights to set
+	 */
+	public Scene setLights(List<LightSource> lights) {
+		this.lights = lights;
+		return this;
+	}
 	
 	/**
 	 * setter, and return this for builder pattern
