@@ -22,8 +22,7 @@ public class SpotLight extends PointLight{
 	 * @param KL double value
 	 * @param KQ double value
 	 */
-	public SpotLight(Color intensity, Point position, double KC, double KL, double KQ, Vector direction) 
-	{
+	public SpotLight(Color intensity, Point position, double KC, double KL, double KQ, Vector direction) {
 		super(intensity, position, KC, KL, KQ);
 		this.direction=direction.normalize();
 	}
@@ -34,8 +33,7 @@ public class SpotLight extends PointLight{
 	 * @param intensity Color value
 	 * @param position Point3D value
 	 */
-	public SpotLight(Color intensity, Point position, Vector direction)  
-	{
+	public SpotLight(Color intensity, Point position, Vector direction)  {
 		super(intensity, position);
 		this.direction=direction.normalize();
 	}
@@ -43,8 +41,7 @@ public class SpotLight extends PointLight{
 	
 	/*******************************************************************************/
 	@Override
-	public Color getIntensity(Point p) throws IllegalArgumentException
-	{
+	public Color getIntensity(Point p) {
 		double pl = Util.alignZero(direction.dotProduct(getL(p)));
 		if(getL(p) == null)
 			return Color.BLACK;

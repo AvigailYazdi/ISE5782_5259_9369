@@ -16,6 +16,8 @@ public class Material {
 	public int nShininess=0; 
 	public Double3 KD=Double3.ZERO; 
 	public Double3 KS=Double3.ZERO; 
+	public Double3 KT=Double3.ZERO; 
+	public Double3 KR=Double3.ZERO;
 	
 	/**
 	 * @param nShininess the nShininess to set
@@ -45,6 +47,24 @@ public class Material {
 		return this;
 	}
 	
+	/**
+	 * @param kT the kT to set
+	 */
+	public Material setKt(double kt) 
+	{
+		KT = new Double3(kt);
+		return this;
+	}
+	
+	/**
+	 * @param kR the kR to set
+	 */
+	public Material setKr(double kR) 
+	{
+		KR = new Double3(kR);
+		return this;
+	}
+	
 	/****************************************************************************/
 
 
@@ -65,6 +85,27 @@ public class Material {
 		KS = kS;
 		return this;
 	}
+	
+	/**
+	 * @param kT the kT to set
+	 */
+	public Material setKt(Double3 kT) 
+	{
+		KT = kT;
+		return this;
+	}
+	
+	/**
+	 * @param kR the kR to set
+	 */
+	public Material setKr(Double3 kR) 
+	{
+		KR = kR;
+		return this;
+	}
+	
+	
+	/****************************************************************************/
 
 	/**
 	 * @return the kD
@@ -80,7 +121,19 @@ public class Material {
 		return KS.d1;
 	}
 
-
+	/**
+	 * @return the kT
+	 */
+	public double getKT() {
+		return KT.d1;
+	}
+	
+	/**
+	 * @return the kR
+	 */
+	public double getKR() {
+		return KR.d1;
+	}
 	
 	
 }

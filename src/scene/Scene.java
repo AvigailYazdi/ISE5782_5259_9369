@@ -22,7 +22,7 @@ public class Scene {
 	public List<LightSource>lights=new LinkedList<LightSource>() ;
 	
 	/**
-	 * constructor 
+	 * constructor that gets a name of a scene
 	 * 
 	 * */
 	public Scene(String name){

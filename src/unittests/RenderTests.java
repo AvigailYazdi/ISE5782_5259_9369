@@ -47,6 +47,7 @@ public class RenderTests {
 		camera.renderImage();
 		camera.printGrid(100, new Color(java.awt.Color.YELLOW));
 		camera.writeToImage();
+
 	}
 	
 	// For stage 6 - please disregard in stage 5

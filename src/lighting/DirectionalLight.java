@@ -16,27 +16,29 @@ public class DirectionalLight extends Light implements LightSource {
 	
 	/**
 	 * Constructor for DirectionalLight
-	 * this c-tor is normalize the direction vector
+	 * this ctor is normalize the direction vector
 	 * @param intensity Color value
 	 * @param direction Vector value
 	 */
-	public DirectionalLight(Color intensity, Vector direction) 
-	{
+	public DirectionalLight(Color intensity, Vector direction) {
 		super(intensity);
 		this.direction=direction.normalize();
 	}
 
 	/**************************************************************************************/
 	@Override
-	public Color getIntensity(Point p)
-	{
+	public Color getIntensity(Point p){
 		return super.getIntensity();
 	}
 	
 	@Override
-	public Vector getL(Point p)
-	{
+	public Vector getL(Point p){
 		return direction;
+	}
+	
+	@Override
+	public double getDistance(Point point) {
+		return Double.POSITIVE_INFINITY;
 	}
 
 }

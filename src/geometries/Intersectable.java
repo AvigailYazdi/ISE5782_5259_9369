@@ -31,10 +31,9 @@ public abstract class Intersectable {
 	/**
 	 * Static Internal Auxiliary Department (as a completely passive data structure - PDS)
 	 * @param geometry Geometry value
-	 * @param point Point3D value
+	 * @param point Point value
 	 * */
-	public static class GeoPoint 
-	{
+	public static class GeoPoint {
 	    public Geometry geometry;
 	    public Point point;
 	    
@@ -42,17 +41,15 @@ public abstract class Intersectable {
 	    /**
 	     * constructor for geo point
 	     * @param geometry Geometry
-	     * @param point Point3D
+	     * @param point Point
 	     * */
-	    public GeoPoint(Geometry geometry,Point point)
-	    {
+	    public GeoPoint(Geometry geometry,Point point){
 	    	this.geometry = geometry;
 	    	this.point = point;
 	    }
 	    
 		@Override
-		public boolean equals(Object obj) 
-		{
+		public boolean equals(Object obj) {
 			if (this == obj) return true;
 			if (obj == null) return false;
 			if (!(obj instanceof GeoPoint)) return false;

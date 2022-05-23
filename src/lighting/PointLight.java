@@ -26,8 +26,7 @@ public class PointLight extends Light implements LightSource{
 	 * @param KL double value
 	 * @param KQ double value
 	 */
-	public PointLight(Color intensity, Point position, double KC, double KL, double KQ) 
-	{
+	public PointLight(Color intensity, Point position, double KC, double KL, double KQ) {
 		super(intensity);
 		this.position=position;
 		this.KC=KC;
@@ -41,8 +40,7 @@ public class PointLight extends Light implements LightSource{
 	 * @param intensity Color value
 	 * @param position Point3D value
 	 */
-	public PointLight(Color intensity, Point position)
-	{
+	public PointLight(Color intensity, Point position){
 		super(intensity);
 		this.position = position;
 	}
@@ -54,8 +52,7 @@ public class PointLight extends Light implements LightSource{
 	 * @param position the position to set
 	 * @return the object - builder
 	 */
-	public PointLight setPosition(Point position) 
-	{
+	public PointLight setPosition(Point position) {
 		this.position = position;
 		return this;
 	}
@@ -66,8 +63,7 @@ public class PointLight extends Light implements LightSource{
 	 * @param kC the kC to set
 	 * @return the object - builder
 	 */
-	public PointLight setKc(double kC) 
-	{
+	public PointLight setKc(double kC) {
 		KC = kC;
 		return this;
 	}
@@ -89,24 +85,26 @@ public class PointLight extends Light implements LightSource{
 	 * @param kQ the kQ to set
 	 * @return the object - builder
 	 */
-	public PointLight setKq(double kQ) 
-	{
+	public PointLight setKq(double kQ) {
 		KQ = kQ;
 		return this;
 	}
 
 	/**************************************************************************************/
 	@Override
-	public Color getIntensity(Point p) throws IllegalArgumentException
-	{
+	public Color getIntensity(Point p){
 		return getIntensity().reduce((KC + KL * p.distance(position)+ KQ * p.distanceSquared(position)));	
 	}
 	
 	@Override
-	public Vector getL(Point p) throws IllegalArgumentException 
-	{	
+	public Vector getL(Point p){	
 		if (p.equals(position))
 			return null; //In order not to reach a state of exception due to the zero vector
 		return p.subtract(position).normalize();		
+	}
+	
+	@Override
+	public double getDistance(Point point) {
+		return position.distance(point);
 	}
 }

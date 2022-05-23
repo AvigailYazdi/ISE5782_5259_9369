@@ -9,6 +9,11 @@ import geometries.Intersectable.GeoPoint;
  * Ray class
  */
 public class Ray {
+	/**
+	 * A constant for the size of moving first rays for shading rays
+	 * */
+	private static final double DELTA = 0.1;
+
 	
 	final Point p0;
 	final Vector dir;
@@ -23,6 +28,20 @@ public class Ray {
 		super();
 		this.p0 = p0;
 		this.dir = dir.normalize();
+	}
+	
+	public Ray(Point head, Vector lightDirection, Vector n) 
+	{
+		if(Util.alignZero(lightDirection.dotProduct(n)) < 0)
+			 p0= head.add(n.scale(-DELTA));
+		else if(Util.alignZero(lightDirection.dotProduct(n)) > 0)
+			 p0= head.add(n.scale(DELTA));
+		else if(Util.isZero(lightDirection.dotProduct(n)))
+			 p0=head;
+		else
+			p0=new Point(0,0,0);/////////////////////////////////////////
+		dir=lightDirection;
+		dir.normalize();		
 	}
 
 	/**

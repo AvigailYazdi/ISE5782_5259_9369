@@ -17,7 +17,7 @@ public interface LightSource {
 	 * @param p Point3D value
 	 * @return intensity color in this point
 	 */
-	public Color getIntensity(Point p) throws IllegalArgumentException;
+	public Color getIntensity(Point p);
 	
 	
 	/**
@@ -25,5 +25,13 @@ public interface LightSource {
 	 * @param p Point3D value
 	 * @return the lighting direction on a point
 	 */
-	public Vector getL(Point p) throws IllegalArgumentException;
+	public Vector getL(Point p);
+	
+	/**
+	 * A function that return the distance between 2 points
+	 * 
+	 * @param point Point3D value
+	 * @return double value for the distance
+	 * */
+	double getDistance(Point point);
 }

@@ -55,8 +55,8 @@ public class Camera {
 	}
 	
 	/**
-	 * sets image
-	 * @param iw-image writer
+	 * sets imageWriter
+	 * @param imageWriter
 	 * @return the camera
 	 */
 	public Camera setImageWriter(ImageWriter imageWriter){
@@ -65,8 +65,8 @@ public class Camera {
 	}
 	
 	/**
-	 * sets image
-	 * @param iw-image writer
+	 * sets rayTracer
+	 * @param rayTracer
 	 * @return the camera
 	 */
 	public Camera setRayTracer(RayTracerBase rayTracer){
