@@ -36,10 +36,9 @@ public class Ray {
 			 p0= head.add(n.scale(-DELTA));
 		else if(Util.alignZero(lightDirection.dotProduct(n)) > 0)
 			 p0= head.add(n.scale(DELTA));
-		else if(Util.isZero(lightDirection.dotProduct(n)))
+		else //if(Util.isZero(lightDirection.dotProduct(n)))
 			 p0=head;
-		else
-			p0=new Point(0,0,0);/////////////////////////////////////////
+
 		dir=lightDirection;
 		dir.normalize();		
 	}

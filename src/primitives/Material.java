@@ -13,11 +13,11 @@ public class Material {
 	 * 
 	 */
 	
-	public int nShininess=0; 
-	public Double3 KD=Double3.ZERO; 
-	public Double3 KS=Double3.ZERO; 
-	public Double3 KT=Double3.ZERO; 
-	public Double3 KR=Double3.ZERO;
+	public int nShininess=0; //shine
+	public Double3 KD=Double3.ZERO; //refraction
+	public Double3 KS=Double3.ZERO; //specular
+	public Double3 KT=Double3.ZERO; //diffuse
+	public Double3 KR=Double3.ZERO;//reflaction
 	
 	/**
 	 * @param nShininess the nShininess to set

@@ -35,25 +35,9 @@ public class RayTracerBasic extends RayTracerBase {
 	 */
 	public RayTracerBasic(Scene myscene) {
 		super(myscene);
-		//return null;
 		
 	}
 	
-	/**
-	 * Function that calculates the color for the nearest intersection point, 
-	 * if no intersection points are returned the color of the background	
-	 * 
-	 * @param ray Ray value
-	 * @return Color
-	 * @throws Exception
-	 *  */
-	/*public Color traceRay(Ray ray) {
-		    List<GeoPoint> intersections = myscene.geometries.findGeoIntersections(ray);
-			if(intersections == null)
-				return  myscene.background;
-			GeoPoint closestPoint = ray.findClosestGeoPoint(intersections);
-			return calcColor(closestPoint,ray);
-	}*/
 	
 	/**
 	 * Function that calculates the color for the nearest intersection point, 
@@ -68,6 +52,25 @@ public class RayTracerBasic extends RayTracerBase {
 			return closestPoint == null ? myscene.background : calcColor(closestPoint, ray);
 	}
 	
+	  /**
+	  * @param rays List of surrounding rays
+	  * @return average color
+	  */
+	 public Color traceRay(List<Ray> rays) ///////////////////////////////////////
+	 {
+	 	if(rays == null)
+	 		return myscene.background;
+	     Color color = myscene.background;
+	     for (Ray ray : rays) 
+	     {
+	     	color = color.add(traceRay(ray));
+	     }
+	     color = color.add(myscene.ambientLight.getIntensity());
+	     int size = rays.size();
+	     return color.reduce(size);
+	
+	 }
+	
 
 	private Color calcColor(GeoPoint geopoint, Ray ray) {
 		return calcColor(geopoint, ray, MAX_CALC_COLOR_LEVEL, INITIAL_K).add(myscene.ambientLight.getIntensity());
@@ -80,9 +83,7 @@ public class RayTracerBasic extends RayTracerBase {
 	 * @return Color 
 	 * */
 	private Color calcColor(GeoPoint intersection, Ray ray, int level, double k)  {
-		//Color KaIa = myscene.ambientLight.getIntensity();
 		Color Ie = intersection.geometry.getEmission(); 
-
 		Color color = Ie.add(calcLocalEffects(intersection, ray,k));
 		return 1 == level ? color : color.add(calcGlobalEffects(intersection, ray, level, k , intersection.geometry.getNormal(intersection.point)));
 
@@ -153,8 +154,6 @@ public class RayTracerBasic extends RayTracerBase {
 	 * */
 	private Ray constructRefractedRay(Vector normal, Point point, Ray ray) {
 		Vector v = ray.getDir();
-//		Vector delta = normal.scale(normal.dotProduct(v) > 0 ? DELTA : -DELTA);// where we need to move the point
-//		Point pointDelta = point.add(delta);
 		return new Ray(point, v ,normal);
 	}
 
@@ -174,9 +173,6 @@ public class RayTracerBasic extends RayTracerBase {
 		if (Util.isZero(nv))
 			return null;
 		Vector r = v.subtract(normal.scale(nv*2));
-//		Vector delta = normal.scale(normal.dotProduct(r) > 0 ? DELTA : - DELTA);
-//		Point3D p = point.add(delta);
-
 		return new Ray(point, r, normal);
 	}
 	
@@ -260,8 +256,6 @@ public class RayTracerBasic extends RayTracerBase {
 	 * */
 	private boolean unshaded(GeoPoint geopoint,Vector l, Vector n , LightSource light){
 		Vector lightDirection = l.scale(-1); // from point to light source
-//		Vector delta = n.scale(n.dotProduct(lightDirection) > 0 ? DELTA : -DELTA);// where we need to move the point
-//		Point point = geopoint.point.add(delta);// moving the point
 		Ray lightRay = new Ray(geopoint.point, lightDirection, n); // refactored ray head move
 		List<GeoPoint> intersections = myscene.geometries.findGeoIntersections(lightRay);
 		if (intersections == null) 
@@ -287,7 +281,7 @@ public class RayTracerBasic extends RayTracerBase {
 	private double transparency(LightSource light, Vector l, Vector n, GeoPoint geoPoint){
 		Vector lightDirection = l.scale(-1); // from point to light source
 		Ray lightRay = new Ray(geoPoint.point, lightDirection, n); // refactored ray head move
-
+		
 		double lightDistance = light.getDistance(geoPoint.point);
 		var intersections = myscene.geometries.findGeoIntersections(lightRay);
 		if (intersections == null) 
