@@ -38,7 +38,6 @@ public class RayTracerBasic extends RayTracerBase {
 		
 	}
 	
-	
 	/**
 	 * Function that calculates the color for the nearest intersection point, 
 	 * if no intersection points are returned the color of the background	
@@ -56,7 +55,7 @@ public class RayTracerBasic extends RayTracerBase {
 	  * @param rays List of surrounding rays
 	  * @return average color
 	  */
-	 public Color traceRay(List<Ray> rays) ///////////////////////////////////////
+	 public Color traceRay(List<Ray> rays) 
 	 {
 	 	if(rays == null)
 	 		return myscene.background;

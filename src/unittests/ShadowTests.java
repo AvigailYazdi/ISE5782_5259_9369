@@ -3,7 +3,7 @@
  */
 package unittests;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 import org.junit.jupiter.api.Test;
 
@@ -38,6 +38,7 @@ class ShadowTests {
 	 * Helper function for the tests in this module
 	 */
 	void sphereTriangleHelper(String pictName, Triangle triangle, Point spotLocation) {
+		try {
 		scene.geometries.add(sphere, triangle.setEmission(new Color(BLUE)).setMaterial(trMaterial));
 		scene.lights.add( //
 				new SpotLight(new Color(400, 240, 0), spotLocation, new Vector(1, 1, -3)) //
@@ -45,6 +46,8 @@ class ShadowTests {
 		camera.setImageWriter(new ImageWriter(pictName, 400, 400)); //
 		camera.renderImage(); //
 		camera.writeToImage();
+		}
+		catch(Exception ex) {}
 	}
 
 	/**
@@ -103,6 +106,7 @@ class ShadowTests {
 	 */
 	@Test
 	public void trianglesSphere() {
+		try {
 		scene.setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE), new Double3(0.15)));
 
 		scene.geometries.add( //
@@ -121,5 +125,7 @@ class ShadowTests {
 		camera.setImageWriter(new ImageWriter("shadowTrianglesSphere", 600, 600)); //
 		camera.renderImage();//
 		camera.writeToImage();
+		}
+		catch(Exception ex) {}
 	}
 }

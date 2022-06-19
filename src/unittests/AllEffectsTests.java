@@ -3,11 +3,11 @@
  */
 package unittests;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 import org.junit.jupiter.api.Test;
 
-import geometries.Polygon;
+
 import geometries.Sphere;
 import geometries.Triangle;
 import lighting.AmbientLight;
@@ -23,7 +23,7 @@ import renderer.RayTracerBasic;
 import scene.Scene;
 
 /**
- * @author shila
+ * @author shilat and Avigail
  *
  */
 class AllEffectsTests {
@@ -32,6 +32,7 @@ class AllEffectsTests {
 
 	@Test
 	public void OurPicture() {
+		try {
 		Camera camera = new Camera(new Point(0, 0, -1000), new Vector(0, 0, 1), new Vector(0, -1, 0));
 		camera.setVPDistance(1000).setVPSize(200,200);
 		scene.setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE), new Double3(0.15)));
@@ -54,6 +55,8 @@ class AllEffectsTests {
 		.setRayTracer(new RayTracerBasic(scene)); 
 camera.renderImage(); //
 camera.writeToImage();
+}
+	catch(Exception ex) {}
 		
 	}
 

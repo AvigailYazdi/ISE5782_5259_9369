@@ -3,7 +3,7 @@
  */
 package unittests;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 import org.junit.jupiter.api.Test;
 
@@ -54,6 +54,7 @@ public class LightsTests {
 	 */
 	@Test
 	public void sphereDirectional() {
+		try {
 		scene1.geometries.add(sphere);
 		scene1.lights.add(new DirectionalLight(spCL, new Vector(1, 1, -0.5)));
 
@@ -63,12 +64,15 @@ public class LightsTests {
 		camera1.renderImage(); //
 		camera1.writeToImage(); //
 	}
+	catch(Exception ex) {}
+	}
 
 	/**
 	 * Produce a picture of a sphere lighted by a point light
 	 */
 	@Test
 	public void spherePoint() {
+		try {
 		scene1.geometries.add(sphere);
 		scene1.lights.add(new PointLight(spCL, spPL).setKl(0.001).setKq(0.0002));
 
@@ -77,6 +81,8 @@ public class LightsTests {
 				.setRayTracer(new RayTracerBasic(scene1)); //
 		camera1.renderImage(); //
 		camera1.writeToImage(); //
+		}
+		catch(Exception ex) {}
 	}
 
 	/**
@@ -84,6 +90,7 @@ public class LightsTests {
 	 */
 	@Test
 	public void sphereSpot() {
+		try {
 		scene1.geometries.add(sphere);
 		scene1.lights.add(new SpotLight(spCL, spPL, new Vector(1, 1, -0.5)).setKl(0.001).setKq(0.0001));
 
@@ -93,12 +100,15 @@ public class LightsTests {
 		camera1.renderImage(); //
 		camera1.writeToImage(); //
 	}
+	catch(Exception ex) {}
+	}
 
 	/**
 	 * Produce a picture of a two triangles lighted by a directional light
 	 */
 	@Test
 	public void trianglesDirectional() {
+		try {
 		scene2.geometries.add(triangle1, triangle2);
 		scene2.lights.add(new DirectionalLight(trCL, trDL));
 
@@ -107,6 +117,8 @@ public class LightsTests {
 				.setRayTracer(new RayTracerBasic(scene2)) ;//
 		camera2.renderImage(); //
 		camera2.writeToImage(); //
+		}
+		catch(Exception ex) {}
 	}
 
 	/**
@@ -114,6 +126,7 @@ public class LightsTests {
 	 */
 	@Test
 	public void trianglesPoint() {
+		try {
 		scene2.geometries.add(triangle1, triangle2);
 		scene2.lights.add(new PointLight(trCL, trPL).setKl(0.001).setKq(0.0002));
 
@@ -122,6 +135,8 @@ public class LightsTests {
 				.setRayTracer(new RayTracerBasic(scene2)); //
 		camera2.renderImage(); //
 		camera2.writeToImage(); //
+		}
+		catch(Exception ex) {}
 	}
 
 	/**
@@ -129,6 +144,7 @@ public class LightsTests {
 	 */
 	@Test
 	public void trianglesSpot() {
+		try {
 		scene2.geometries.add(triangle1, triangle2);
 		scene2.lights.add(new SpotLight(trCL, trPL, trDL).setKl(0.001).setKq(0.0001));
 
@@ -137,6 +153,8 @@ public class LightsTests {
 				.setRayTracer(new RayTracerBasic(scene2)); //
 		camera2.renderImage(); //
 		camera2.writeToImage(); //
+		}
+		catch(Exception ex) {}
 	}
 	
 
